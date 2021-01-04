@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../js/jquery-3.5.1.js"></script>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="msg">
+    {{msg}}
+</div>
+<script>
+    Vue.config.productionTip = false;
+    new Vue({
+        el: '#app',
+        data:{
+            msg : 22
+        },
+        watch : {
+            msg: {
+                get() {
+                    return this.msg;
+                },
+                set(value) {
+                    console.log('ok')
+                    this.msg = value
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

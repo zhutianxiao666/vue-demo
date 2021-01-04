@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../js/vue.js"></script>
+    <style>
+        div {
+            /*font-size: 20px;*/
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="firstName">
+    <input type="text" v-model="lastName">
+    <input type="text" v-model="fullName">
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            firstName:'a',
+            lastName:'b',
+            fullName :''
+        },
+        watch: {
+            lastName: function (value,value1) {
+                this.fullName = this.firstName + '-'  + value
+            },
+            firstName: function (value,value1) {
+                console.log(value1);
+                this.fullName = value + '-' + this.lastName
+            },
+            fullName: function (value,value1) {
+                this.firstName = value.split('-')[0];
+                this.lastName = value.split('-')[1];
+            }
+        },
+        mounted:function () {
+
+        }
+    })
+</script>
+</body>
+</html>

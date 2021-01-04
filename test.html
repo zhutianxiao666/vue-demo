@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="public/js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="checkbox" id="a1" v-model="list" value="a1">
+    <label for="a1">a1</label>
+    <input type="checkbox" id="a2" v-model="list" value="a2">
+    <label for="a2">a2</label>
+    <input type="checkbox" id="a3" v-model="list" value="a3">
+    <label for="a3">a3</label>
+    <select v-model="cityname">
+        <option v-for="item in city" :value="item">{{item}}</option>
+    </select>
+</div>
+<script>
+    new Vue({
+        el:'#app',
+        data: {
+            list:[],
+            city:[
+                'gz',
+                'sh',
+                'sz'
+            ],
+            cityname:'sh'
+        }
+    })
+
+</script>
+</body>
+</html>
